@@ -17,5 +17,5 @@
 ***
 ## Some pictures of the game(Wireframes)
 "These pictures are just ideas, not real screenshots from the game. They show what the game might feel like."
-![First picture you will see when you open the game](https://ibb.co/f8rktsw)
-![Choosing the game mode](https://ibb.co/JzLNXWG)
+![First picture you will see when you open the game](https://i.ibb.co/z8PXbzv/PHOTO-2024-01-17-23-53-08.jpg)
+![Choosing the game mode](https://i.ibb.co/Hrv0mLb/Frame-8.jpg)
