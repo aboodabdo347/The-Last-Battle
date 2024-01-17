@@ -17,5 +17,5 @@
 ***
 ## Some pictures of the game(Wireframes)
 "These pictures are just ideas, not real screenshots from the game. They show what the game might feel like."
-![First picture you will see when you open the game](https://trello.com/1/cards/65a84ccb81eff5e7748e9a33/attachments/65a84e798c6262a1d85bf931/download/PHOTO-2024-01-17-23-53-08.jpg)
-![Choosing the game mode](https://trello.com/1/cards/65a84ccb81eff5e7748e9a33/attachments/65a84e64239fde1f6ad5e843/download/Frame_8.png)
+![First picture you will see when you open the game](https://ibb.co/f8rktsw)
+![Choosing the game mode](https://ibb.co/JzLNXWG)
