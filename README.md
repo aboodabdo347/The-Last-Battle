@@ -1,7 +1,7 @@
 # The Last Battle
 ***
 ## Overview
-"The Last Battle" is a 2D strategy game designed for web platforms. Utilizing HTML, CSS, and JavaScript, the game features a battlefield comprised of a 1000-box grid, masked by a background image for visual appeal. Players will navigate through this grid, engaging in tactical combat against CPU-controlled opponents.
+"The Last Battle" is a 2D strategy game designed for web platforms. Utilizing HTML, CSS, and JavaScript, the game features a battlefield comprised of grid, masked by a background image for visual appeal. Players will navigate through this grid, engaging in tactical combat against CPU-controlled opponents.
 ***
 ## Gameplay
 ### Teams
