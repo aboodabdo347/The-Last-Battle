@@ -9,7 +9,7 @@ The map is based on a grid covered by a background image to hide the boxes of th
 - Team base: where the team players respawn and protect it in conquest mode.
 - Battle area: which will be in the middle of the map and act as a connection link between the bases. It also contains walls where players can take cover.
 - Enemy base: where the enemy players respawn and which must be invaded to win in conquest mode. The enemy players should protect it from team players.
- [concept disign of the map](https://whimsical.com/Ms5gWDWXEddNXqy3QEH66d)
+  [concept disign of the map](https://whimsical.com/Ms5gWDWXEddNXqy3QEH66d)
 ### Teams:
 - Format: 5 vs 5 combat.
 - Control: The player controls one character, while the rest are CPU-controlled. The camera offers a top-down perspective. [Explain what top-down perspective is](https://whimsical.com/Ms5gWDWXEddNXqy3QEH66d)
