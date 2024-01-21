@@ -1,0 +1,22 @@
+.first-edition {
+  display: grid;
+  grid-template-columns: repeat(10, 0fr);
+  grid-template-rows: repeat(10, 1fr);
+  grid-gap: 0px;
+}
+.box {
+  background-color: gray;
+  width: 30px;
+  height: 30px;
+  border: 1px solid black;
+  cursor: pointer;
+  text-align: center;
+  font-size: 20px;
+}
+body {
+  /* background-image: url('https://img.freepik.com/premium-vector/army-camouflage-seamless-pattern-green-colors-vector-illustration_522680-230.jpg'); */
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
