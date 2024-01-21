@@ -2,7 +2,7 @@ const create = () => {
   const first = document.querySelector('.first-edition')
   for (let i = 0; i < 100; i++) {
     let box = document.createElement('div')
-    box.innerHTML = i
+    // box.innerHTML = i
     box.classList.add('box')
     first.appendChild(box)
   }
@@ -42,9 +42,12 @@ class Character {
   }
   kill() {
     const boxes = document.querySelectorAll('.box')
-    boxes[this.positionX * 10 + this.positionY].innerHTML = 'rip'
-    arrC[this.positionX][this.positionY] = 'rip'
-    this.dead++
+    this.health -= 10
+    if (this.health === 0) {
+      boxes[this.positionX * 10 + this.positionY].innerHTML = 'rip'
+      arrC[this.positionX][this.positionY] = 'rip'
+      this.dead++
+    }
   }
 
   setPosition(newPositionX, newPositionY) {
@@ -74,7 +77,7 @@ class Character {
       let nextY = nowY
       let choose = Math.random()
       if (
-        choose > 0.0 &&
+        choose >= 0.0 &&
         choose < 0.25 &&
         nowX < 9 &&
         arrC[nowX + 1][nowY] === ''
@@ -117,7 +120,8 @@ class Character {
       if (
         this !== enemy &&
         this.getTeam() !== enemy.getTeam() &&
-        this.isAdjacent(enemy) === 1
+        this.isAdjacent(enemy) === 1 &&
+        this.getDead() === 0
       ) {
         this.battle(enemy)
       }
@@ -126,13 +130,27 @@ class Character {
 }
 class X extends Character {}
 class O extends Character {}
+const generate = (word) => {
+  if (word === 'tx') {
+    return Math.floor(Math.random() * 10)
+  }
+  if (word === 'ty') {
+    return Math.floor(Math.random() * 2) + 8
+  }
+  if (word === 'ex') {
+    return Math.floor(Math.random() * 10)
+  }
+  if (word === 'ey') {
+    return Math.floor(Math.random() * 2)
+  }
+}
 document.addEventListener('DOMContentLoaded', () => {
   create()
   const characters = [
-    new X('x', 1, 0, 0),
-    new X('f', 6, 0, 0),
-    new O('o', 0, 9, 1),
-    new O('l', 2, 9, 1)
+    new X('x', generate('ty'), generate('tx'), 0),
+    new X('f', generate('ty'), generate('tx'), 0),
+    new O('o', generate('ey'), generate('ex'), 1),
+    new O('l', generate('ey'), generate('ex'), 1)
   ]
   characters.forEach((c) => c.setPosition(c.getPositionX(), c.getPositionY()))
   setInterval(() => {
