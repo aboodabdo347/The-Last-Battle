@@ -3,6 +3,7 @@
   grid-template-columns: repeat(10, 0fr);
   grid-template-rows: repeat(10, 1fr);
   grid-gap: 0px;
+  grid-area: game;
 }
 .box {
   background-image: url('https://clipart-library.com/images/6Tr5Ej4pc.jpg');
@@ -14,13 +15,26 @@
 }
 body {
   /* background-image: url('https://img.freepik.com/premium-vector/army-camouflage-seamless-pattern-green-colors-vector-illustration_522680-230.jpg'); */
+  display: grid;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  place-items: center;
 }
 .select {
   background-color: black;
-  width: 50px;
+  width: 400px;
   height: 60px;
+  grid-area: select;
+}
+.score {
+  grid-area: score;
+  background-color: brown;
+  width: 400px;
+  height: 60px;
+}
+.container {
+  display: grid;
+  grid-template-areas:
+    'score score score score'
+    'game game game game'
+    'select select select select';
 }
