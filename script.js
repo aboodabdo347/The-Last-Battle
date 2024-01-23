@@ -20,9 +20,6 @@ for (let i = 0; i < 10; i++) {
   arrC[i] = []
   for (let j = 0; j < 10; j++) {
     arrC[i][j] = ''
-    if (i === 5 && j === 5) {
-      arrC[j][i] = 'wall'
-    }
   }
 }
 class Character {
@@ -78,8 +75,8 @@ class Character {
   }
   setDamage(type) {
     if (this.getType() === 'infantryman') return 5
-    if (this.getType() == 'tank') return 100
-    if (this.getType() === 'sniper') return 30
+    if (this.getType() == 'tank') return 30
+    if (this.getType() === 'sniper') return 10
   }
   reload() {
     if (this.getType() === 'infantryman' && this.getBullets() < 30) {
@@ -126,7 +123,13 @@ class Character {
     let newHealth = enemy.getHealth() - this.setDamage(this.getType())
     enemy.setHealth(newHealth)
     if (newHealth <= 0 && enemy.getTeam() === 1) {
-      boxes[enemy.getPositionX() * 10 + enemy.getPositionY()].innerHTML = 'rip'
+      boxes[enemy.getPositionX() * 10 + enemy.getPositionY()].style.color =
+        'white'
+      boxes[enemy.getPositionX() * 10 + enemy.getPositionY()].innerHTML =
+        'R.I.P'
+      boxes[
+        enemy.getPositionX() * 10 + enemy.getPositionY()
+      ].style.backgroundColor = 'black'
       arrC[enemy.getPositionX()][enemy.getPositionY()] = 'rip'
       enemy.setDead(1)
       maxCPU--
@@ -134,7 +137,13 @@ class Character {
       getScore()
     }
     if (newHealth <= 0 && enemy.getTeam() === 0) {
-      boxes[enemy.getPositionX() * 10 + enemy.getPositionY()].innerHTML = 'rip'
+      boxes[enemy.getPositionX() * 10 + enemy.getPositionY()].style.color =
+        'white'
+      boxes[enemy.getPositionX() * 10 + enemy.getPositionY()].innerHTML =
+        'R.I.P'
+      boxes[
+        enemy.getPositionX() * 10 + enemy.getPositionY()
+      ].style.backgroundColor = 'black'
       arrC[enemy.getPositionX()][enemy.getPositionY()] = 'rip'
       enemy.setDead(1)
       maxPlayer--
@@ -326,7 +335,7 @@ const playerDeployCooldown = { infantryman: 5000, tank: 20000, sniper: 10000 }
 let maxCPU = 0
 let maxPlayer = 0
 const getCheck = () => {
-  const winningScore = 10
+  const winningScore = 50
 
   if (teamScore >= winningScore) {
     alert('You wins!')
@@ -348,7 +357,7 @@ const endGame = () => {
   clearInterval(gameInterval)
 }
 const cpuDeploy = () => {
-  const unitTypes = ['X', 'O', 'S']
+  const unitTypes = ['infantryman', 'tank', 'sniper']
   const selectedUnitType =
     unitTypes[Math.floor(Math.random() * unitTypes.length)]
   const currentTime = new Date().getTime()
@@ -407,11 +416,15 @@ document.addEventListener('DOMContentLoaded', () => {
   create()
   boxes = document.querySelectorAll('.box')
 
-  const deployButton = document.getElementById('deployButton')
-  deployButton.addEventListener('click', () => {
-    const selectedUnitType = document.getElementById('unitType').value
-    playerDeploy(selectedUnitType)
-  })
+  document
+    .getElementById('infantryman')
+    .addEventListener('click', () => playerDeploy('infantryman'))
+  document
+    .getElementById('tank')
+    .addEventListener('click', () => playerDeploy('tank'))
+  document
+    .getElementById('sniper')
+    .addEventListener('click', () => playerDeploy('sniper'))
 
   startGame()
 })

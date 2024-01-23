@@ -1,34 +1,59 @@
 body {
-  background-image: url('https://img.freepik.com/premium-vector/army-camouflage-seamless-pattern-green-colors-vector-illustration_522680-230.jpg');
-  display: grid;
+  background-color: rgb(58, 51, 51); /* Dark blue background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100vh;
-  place-items: center;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
 .container {
-  grid-gap: 100px;
-  display: grid;
-  grid-template-areas:
-    'head head head head'
-    'text text text text'
-    'buttons buttons buttons buttons'
-    'footer footer footer footer';
-}
-.head {
-  height: 20vh;
-  border: 2px solid black;
+  width: 80%;
+  max-width: 600px;
   text-align: center;
-  grid-area: head;
+  border-radius: 10px;
   background-color: black;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.head {
+  margin-bottom: 20px;
+  font-size: 2em;
   color: white;
 }
+
 .text {
-  grid-area: text;
+  color: #e1e1e1;
+  margin-bottom: 20px;
 }
+
 .buttons {
-  display: flex;
-  flex-wrap: wrap;
-  grid-area: buttons;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
 }
+
+.buttons button {
+  background-color: white; /* Deep blue for buttons */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 1s;
+}
+.buttons a {
+  color: black;
+  text-decoration: none;
+}
+.buttons button:hover {
+  background-color: gray;
+}
+
 .footer {
-  grid-area: footer;
+  color: #e1e1e1;
+  font-size: 0.8em;
+  opacity: 0.3;
 }
