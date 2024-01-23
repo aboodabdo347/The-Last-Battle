@@ -4,6 +4,12 @@ const create = () => {
     let box = document.createElement('div')
     box.classList.add('box')
     first.appendChild(box)
+    if (i < 20) {
+      box.style.backgroundColor = 'red'
+    }
+    if (i > 79) {
+      box.style.backgroundColor = 'blue'
+    }
   }
 }
 let boxes = document.querySelectorAll('.box')
@@ -141,23 +147,16 @@ class Character {
     const boxes = document.querySelectorAll('.box')
     arrC[this.positionX][this.positionY] = ''
     boxes[this.positionX * 10 + this.positionY].innerHTML = ''
+    boxes[this.positionX * 10 + this.positionY].style.backgroundColor = ''
     this.positionX = newPositionX
     this.positionY = newPositionY
-    const image = document.createElement('img')
-    if (this.getType() === 'infantryman') {
-      image.src =
-        'https://trello.com/1/cards/65af8d05eb1b476b05080377/attachments/65af8e88814ed8b9cdfb0c8d/download/soldier_s.png'
-    } else if (this.getType() === 'sniper') {
-      image.src =
-        'https://trello.com/1/cards/65af8d05eb1b476b05080377/attachments/65af8f3b053d99e1cfbf6e20/download/sniper.png'
-    } else if (this.getType() === 'tank') {
-      image.src =
-        'https://trello.com/1/cards/65af8d05eb1b476b05080377/attachments/65af8e7bd831576d79a9a292/download/tank.png'
-    }
-    boxes[this.positionX * 10 + this.positionY].appendChild(image)
 
     arrC[this.positionX][this.positionY] = this.getName()
-    // boxes[this.positionX * 10 + this.positionY].innerHTML = this.getName()
+    boxes[this.positionX * 10 + this.positionY].innerHTML = this.getName()
+    if (this.getTeam() === 0)
+      boxes[this.positionX * 10 + this.positionY].style.backgroundColor = 'blue'
+    else
+      boxes[this.positionX * 10 + this.positionY].style.backgroundColor = 'red'
   }
   isAdjacent(enemy) {
     if (enemy.getDead() === 0) {
@@ -216,18 +215,6 @@ class Character {
     else if (this.positionY > targetY) this.positionY--
 
     this.setPosition(this.positionX, this.positionY)
-  }
-
-  recoverHealth() {
-    this.isHiding = true
-    const healthRecoveryInterval = setInterval(() => {
-      if (this.health >= 80) {
-        clearInterval(healthRecoveryInterval)
-        this.isHiding = false
-      } else {
-        this.health += 1
-      }
-    }, 100)
   }
 
   battle(enemy) {
@@ -343,6 +330,7 @@ const getCheck = () => {
 
   if (teamScore >= winningScore) {
     alert('You wins!')
+
     gameOver = true
     endGame()
     return
@@ -350,6 +338,7 @@ const getCheck = () => {
 
   if (enemyScore >= winningScore) {
     alert('You lose!')
+
     gameOver = true
     endGame()
     return
@@ -359,7 +348,7 @@ const endGame = () => {
   clearInterval(gameInterval)
 }
 const cpuDeploy = () => {
-  const unitTypes = ['ICPU', 'TCPU', 'SCPU']
+  const unitTypes = ['X', 'O', 'S']
   const selectedUnitType =
     unitTypes[Math.floor(Math.random() * unitTypes.length)]
   const currentTime = new Date().getTime()
@@ -436,10 +425,10 @@ const startGame = () => {
       characters.forEach((character) => {
         character.move()
         character.findAndBattle(characters)
-        character.getCheck()
+        getCheck()
       })
     } else {
       endGame()
     }
-  }, 100)
+  }, 1000)
 }
