@@ -2,7 +2,6 @@ const create = () => {
   const first = document.querySelector('.first-edition')
   for (let i = 0; i < 100; i++) {
     let box = document.createElement('div')
-    // box.innerHTML = i
     box.classList.add('box')
     first.appendChild(box)
   }
@@ -141,21 +140,24 @@ class Character {
   setPosition(newPositionX, newPositionY) {
     const boxes = document.querySelectorAll('.box')
     arrC[this.positionX][this.positionY] = ''
-    const image = document.createElement('img')
-    if (this.getType() === 'infantryman')
-      image.src =
-        'https://trello.com/1/cards/65af8d05eb1b476b05080377/attachments/65af8e88814ed8b9cdfb0c8d/download/soldier_s.png'
-    if (this.getType() === 'sniper')
-      image.src =
-        'https://trello.com/1/cards/65af8d05eb1b476b05080377/attachments/65af8f3b053d99e1cfbf6e20/download/sniper.png'
-    if (this.getType() === 'tank')
-      image.src =
-        'https://trello.com/1/cards/65af8d05eb1b476b05080377/attachments/65af8e7bd831576d79a9a292/download/tank.png'
-    boxes[this.positionX * 10 + this.positionY].appendChild(image)
+    boxes[this.positionX * 10 + this.positionY].innerHTML = ''
     this.positionX = newPositionX
     this.positionY = newPositionY
+    const image = document.createElement('img')
+    if (this.getType() === 'infantryman') {
+      image.src =
+        'https://trello.com/1/cards/65af8d05eb1b476b05080377/attachments/65af8e88814ed8b9cdfb0c8d/download/soldier_s.png'
+    } else if (this.getType() === 'sniper') {
+      image.src =
+        'https://trello.com/1/cards/65af8d05eb1b476b05080377/attachments/65af8f3b053d99e1cfbf6e20/download/sniper.png'
+    } else if (this.getType() === 'tank') {
+      image.src =
+        'https://trello.com/1/cards/65af8d05eb1b476b05080377/attachments/65af8e7bd831576d79a9a292/download/tank.png'
+    }
+    boxes[this.positionX * 10 + this.positionY].appendChild(image)
+
     arrC[this.positionX][this.positionY] = this.getName()
-    boxes[this.positionX * 10 + this.positionY].innerHTML = this.getName()
+    // boxes[this.positionX * 10 + this.positionY].innerHTML = this.getName()
   }
   isAdjacent(enemy) {
     if (enemy.getDead() === 0) {
@@ -400,7 +402,7 @@ const cpuDeploy = () => {
   ) {
     return
   }
-  if (maxCPU < 3) {
+  if (maxCPU < 10) {
     lastCpuDeployTime[selectedUnitType] = currentTime
 
     const positionX = generate('ex')
@@ -430,7 +432,7 @@ const playerDeploy = (unitType) => {
     alert(`Please wait. Cooldown for ${unitType} is not finished.`)
     return
   }
-  if (maxPlayer < 3) {
+  if (maxPlayer < 10) {
     lastPlayerDeployTime[unitType] = currentTime
 
     const positionX = generate('tx')
@@ -466,9 +468,10 @@ const startGame = () => {
       characters.forEach((character) => {
         character.move()
         character.findAndBattle(characters)
+        character.getCheck()
       })
     } else {
-      clearInterval(gameInterval)
+      endGame()
     }
   }, 100)
 }

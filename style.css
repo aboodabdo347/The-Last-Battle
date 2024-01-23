@@ -9,7 +9,6 @@
   background-image: url('https://t3.ftcdn.net/jpg/04/66/86/56/360_F_466865652_vXCfYiTlh5v8Qd5TS8O7YV412vr1tg2b.jpg');
   width: 130px;
   height: 60px;
-  /* border: 1px solid black; */
   text-align: center;
   font-size: 20px;
 }
@@ -40,5 +39,5 @@ body {
 }
 img {
   height: 60px;
-  width: 130px;
+  width: 60px;
 }

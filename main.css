@@ -1,0 +1,34 @@
+body {
+  background-image: url('https://img.freepik.com/premium-vector/army-camouflage-seamless-pattern-green-colors-vector-illustration_522680-230.jpg');
+  display: grid;
+  height: 100vh;
+  place-items: center;
+}
+.container {
+  grid-gap: 100px;
+  display: grid;
+  grid-template-areas:
+    'head head head head'
+    'text text text text'
+    'buttons buttons buttons buttons'
+    'footer footer footer footer';
+}
+.head {
+  height: 20vh;
+  border: 2px solid black;
+  text-align: center;
+  grid-area: head;
+  background-color: black;
+  color: white;
+}
+.text {
+  grid-area: text;
+}
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  grid-area: buttons;
+}
+.footer {
+  grid-area: footer;
+}
