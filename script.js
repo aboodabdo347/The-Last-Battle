@@ -208,38 +208,6 @@ class Character {
       this.setPosition(nextX, nextY)
     }
   }
-  hide() {
-    if (this.health >= 25 || this.isHiding) return
-
-    let closestWall = this.findClosestWall()
-
-    if (!closestWall) return
-
-    this.moveTowards(closestWall.x, closestWall.y)
-
-    this.recoverHealth()
-  }
-
-  findClosestWall() {
-    let minDistance = Infinity
-    let closestWall = null
-
-    for (let y = 0; y < 10; y++) {
-      for (let x = 0; x < 10; x++) {
-        if (arrC[x][y] === 'wall') {
-          let distance =
-            Math.abs(this.positionX - x) + Math.abs(this.positionY - y)
-          if (distance < minDistance) {
-            minDistance = distance
-            closestWall = { x, y }
-          }
-        }
-      }
-    }
-
-    return closestWall
-  }
-
   moveTowards(targetX, targetY) {
     if (this.positionX < targetX) this.positionX++
     else if (this.positionX > targetX) this.positionX--
