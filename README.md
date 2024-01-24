@@ -4,7 +4,7 @@
 
 ## Overview
 
-"The Last Battle" is a 2D strategy game designed for web platforms. Utilizing HTML, CSS, and JavaScript, the game features a battlefield composed of a grid, masked by a background image for visual appeal. Players navigate through this grid, engaging in tactical combat against CPU-controlled opponents.
+"The Last Battle" is a 2D strategy game designed for web platforms. Using HTML, CSS, and JavaScript, the game features a battlefield made up of a grid. Players navigate this grid, engaging in tactical combat against CPU-controlled opponents.
 
 ---
 
@@ -12,27 +12,99 @@
 
 ### Map:
 
-The map is based on a grid, It is represented in the JavaScript code by an array, with each box having one index in the array. The map is divided into 3 sectors:
+The map is a grid represented in JavaScript as an array, with each box having an index. The map has 3 sectors:
 
-- Team base: where the team players respawn.
-- Battle area: which will be in the middle of the map and act as a connection link between the bases.
-- Enemy base: where the enemy players respawn.
+- Team base: where team players respawn
+- Battle area: in the middle of the map, acting as a link between the bases.
+- Enemy base: where enemy players respawn
 
 ### Teams:
-
-- Format: 5 vs 5 combat.
-- Control: The player controls one character, while the rest are CPU-controlled. The camera offers a top-down perspective. [Explain what top-down perspective is](https://whimsical.com/Ms5gWDWXEddNXqy3QEH66d)
-- AI Behavior: CPU characters exhibit intelligent behaviors, such as taking cover when their HP (health bar) is less than 20%. While taking cover, their health refreshes until reaching 100% (not exactly 100%; the player or the bot can leave cover whenever they want).
+- Characters: There are three types of characters: infantryman, tank, and sniper. Each has a unique damage output: 5 for the infantryman, 30 for the tank, and 10 for the sniper.
+- Format: 10 vs 10 combat. (AI enemies may add more players to win the battle)
+- Control: Players deploy forces against AI-controlled enemies.
+- AI Behavior: Characters exhibit intelligent behaviors, choosing the closest enemy for combat.
 
 ### Mechanics
 
-- Movement: Players and CPU characters move along the grid lines using the "WASD" keys. Each grid box corresponds to one array index, and movement is restricted if a player or wall occupies the space.
-- Combat: Characters engage with the nearest enemy. CPU characters will scan the grid and array to select an enemy and shoot bullets at them. Bullets cannot hit enemies taking cover behind walls. The walls have fixed positions in the grid and are represented in the array. They provide cover to players directly behind them by one box or one index. Walls can be destroyed after taking significant damage. CPU characters may sometimes target walls, especially when players have been taking cover behind them for a prolonged period. These wireframes explain how the walls provide cover: [Explain how walls work in the grid](https://whimsical.com/Ms5gWDWXEddNXqy3QEH66d).
-
+- Movement: Players and CPU characters move along the grid, with each grid box corresponding to one array index.
+- Combat: Characters engage with the nearest enemy. CPU characters scan the grid to select an enemy and shoot at them.
 ### Modes:
 
 - Team Deathmatch: A standard fight-to-the-end team battle. The first team to reach 20 kills wins.
 
 ---
+## How to play:
+Easy to play; just click the button of the character type you want to deploy. Characters will fight enemy characters to defeat them and win the battle.
 
-## Some pictures of the game (ScreenShots):
+---
+##  Frequently asked questions(FAQ):
+- **Why the game looks bad?**
+  - The game doesn't offer a visually appealing style or enjoyable gameplay. Its main focus is on the player characters, who initially move randomly. They search for boxes to locate the nearest enemy to engage in combat. Below is the code for the AI logic, which helps in searching for enemies and moving beside them:
+``` 
+     moveTo(characters) {
+    let closestEnemy = null
+    let minDistance = Infinity
+
+    for (let enemy of characters) {
+      if (
+        this !== enemy &&
+        this.getTeam() !== enemy.getTeam() &&
+        enemy.getDead() === 0
+      ) {
+        let distance =
+          Math.abs(this.getPositionX() - enemy.getPositionX()) +
+          Math.abs(this.getPositionY() - enemy.getPositionY())
+        if (distance < minDistance) {
+          minDistance = distance
+          closestEnemy = enemy
+        }
+      }
+    }
+
+    if (closestEnemy !== null) {
+      let moveX = this.getPositionX()
+      let moveY = this.getPositionY()
+
+      if (this.getPositionX() < closestEnemy.getPositionX()) {
+        moveX++
+      } else if (this.getPositionX() > closestEnemy.getPositionX()) {
+        moveX--
+      }
+
+      if (this.getPositionY() < closestEnemy.getPositionY()) {
+        moveY++
+      } else if (this.getPositionY() > closestEnemy.getPositionY()) {
+        moveY--
+      }
+
+      if (
+        moveX >= 0 &&
+        moveX < 10 &&
+        moveY >= 0 &&
+        moveY < 10 &&
+        arrayOfCharacters[moveX][moveY] === ''
+      ) {
+        this.setPosition(moveX, moveY)
+      }
+    }
+  }
+```
+- **Will there be any updates to enhance the gameplay and style?**
+  - Maybe
+- **Is it safe to play the game?**
+  - Yes, it's 100% safe and legal
+- **Does your game meet all the project requirements??**
+  - Yes
+- **Does your game improve your coding skills?**
+  - Yes, especially it gives me a quick insight into how challenging the field of AI is.
+- **What technologies are used in this game?**
+  -  ![HTML badge](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white) 
+  - ![CSS badge](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white) 
+  - ![JS badge](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E) 
+---
+## Some pictures of the game:
+
+### **The main page:**
+![The homepage](https://trello.com/1/cards/65b0b446d56d61cd6b2c86fb/attachments/65b0b455c67ac7b979ba1793/download/Screenshot_(59).png)
+### **The gameplay:**
+![The homepage](https://trello.com/1/cards/65b0b446d56d61cd6b2c86fb/attachments/65b0b45cc2e64e8bfce1ed13/previews/65b0b45dc2e64e8bfce1ed2b/download/Screenshot_(60).png)
