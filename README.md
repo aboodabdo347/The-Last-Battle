@@ -4,7 +4,7 @@
 
 ## Overview
 
-"The Last Battle" is a 2D strategy game designed for web platforms. Using HTML, CSS, and JavaScript, the game features a battlefield made up of a grid. Players navigate this grid, engaging in tactical combat against CPU-controlled opponents.[Click here to play the game!](wiry-shoes.surge.sh)
+"The Last Battle" is a 2D strategy game designed for web platforms. Using HTML, CSS, and JavaScript, the game features a battlefield made up of a grid. Players navigate this grid, engaging in tactical combat against CPU-controlled opponents.[Click here to play the game!](https://wiry-shoes.surge.sh/)
 
 ---
 
