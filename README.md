@@ -105,6 +105,6 @@ Easy to play; just click the button of the character type you want to deploy. Ch
 ## Some pictures of the game:
 
 ### **The main page:**
-![The homepage](https://ibb.co/r7CggSY)
+![The homepage](https://i.ibb.co/dWdSSqF/Screenshot-59.png)
 ### **The gameplay:**
-![The homepage](https://ibb.co/G3jPhFj)
+![The homepage](https://i.ibb.co/bRndf7n/Screenshot-60.png)
