@@ -105,6 +105,6 @@ Easy to play; just click the button of the character type you want to deploy. Ch
 ## Some pictures of the game:
 
 ### **The main page:**
-![The homepage](https://trello.com/1/cards/65b0b446d56d61cd6b2c86fb/attachments/65b0b455c67ac7b979ba1793/download/Screenshot_(59).png)
+![The homepage](https://ibb.co/r7CggSY)
 ### **The gameplay:**
-![The homepage](https://trello.com/1/cards/65b0b446d56d61cd6b2c86fb/attachments/65b0b45cc2e64e8bfce1ed13/previews/65b0b45dc2e64e8bfce1ed2b/download/Screenshot_(60).png)
+![The homepage](https://ibb.co/G3jPhFj)
