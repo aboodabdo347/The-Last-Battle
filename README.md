@@ -20,7 +20,7 @@ The map is a grid represented in JavaScript as an array, with each box having an
 
 ### Teams:
 
-- Characters: There are three types of characters: infantryman, tank, and sniper. Each has a unique damage output: 5 for the infantryman, 30 for the tank, and 10 for the sniper.
+- Characters: There are three types of characters: infantryman, tank, and sniper. Each has a unique damage output: 5 for the infantryman, 30 for the tank, and 10 for the sniper, also, they need to cooldown: 5 seconds for infantryman, 20 for the tank and 10 for the sniper.
 - Format: 10 vs 10 combat. (AI enemies may add more players to win the battle)
 - Control: Players deploy forces against AI-controlled enemies.
 - AI Behavior: Characters exhibit intelligent behaviors, choosing the closest enemy for combat.
@@ -49,7 +49,7 @@ Easy to play; just click the button of the character type you want to deploy. Ch
 
 ```
      moveTo(characters) {
-    let closestEnemy = null
+    let closestEnemy
     let minDistance = Infinity
 
     for (let enemy of characters) {

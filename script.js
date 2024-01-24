@@ -1,18 +1,13 @@
-/* create the grid that showing to the user*/
-const create = () => {
-  const first = document.querySelector('.first-edition')
-  for (let i = 0; i < 100; i++) {
-    let box = document.createElement('div')
-    box.classList.add('box')
-    first.appendChild(box)
-    if (i < 20) {
-      box.style.backgroundColor = 'red'
-    }
-    if (i > 79) {
-      box.style.backgroundColor = 'blue'
-    }
-  }
-}
+/*global variables*/
+///////////////////////
+let gameOver = false
+let gameInterval
+let lastCpuDeployTime = { infantryman: 0, tank: 0, sniper: 0 }
+const cpuDeployCooldown = { infantryman: 5000, tank: 20000, sniper: 10000 }
+let lastPlayerDeployTime = { infantryman: 0, tank: 0, sniper: 0 }
+const playerDeployCooldown = { infantryman: 5000, tank: 20000, sniper: 10000 }
+let maxCpuPlayers = 0
+let maxPlayer = 0
 let boxes = document.querySelectorAll('.box')
 /*the array that will save all the postiton of the characters */
 const arrayOfCharacters = []
@@ -20,14 +15,17 @@ const arrayOfCharacters = []
 let teamKills = 0
 /* repsent the enemy team  kills and your team deaths */
 let enemyKills = 0
+let characters = []
 for (let i = 0; i < 10; i++) {
   arrayOfCharacters[i] = []
   for (let j = 0; j < 10; j++) {
     arrayOfCharacters[i][j] = ''
   }
 }
-/*the class of the characters */
+///////////////////////////
 
+/*the class of the characters */
+////////////////////////////////
 class Character {
   constructor(name, positionX, positionY, team, type) {
     this.name = name
@@ -234,7 +232,7 @@ class Character {
   }
   /*make the character moves to the closest enemy */
   moveTo(characters) {
-    let closestEnemy = null
+    let closestEnemy
     let minDistance = Infinity
 
     for (let enemy of characters) {
@@ -302,6 +300,14 @@ class Character {
     else this.moveTo(characters)
   }
 }
+class X extends Character {} /*extends for your team */
+class O extends Character {} /*extends for the enemy team */
+///////////////////////////////////
+
+/*Global functions*/
+
+///////////////////////////////////
+
 /*choose the position randomly where will be deploy in the character base */
 const generate = (word) => {
   if (word === 'tx') {
@@ -330,17 +336,23 @@ getScore = () => {
     ' Deaths: ' +
     teamKills
 }
-class X extends Character {} /*extends for your team */
-class O extends Character {} /*extends for the enemy team */
-let characters = []
-let gameOver = false
-let gameInterval
-let lastCpuDeployTime = { infantryman: 0, tank: 0, sniper: 0 }
-const cpuDeployCooldown = { infantryman: 5000, tank: 20000, sniper: 10000 }
-let lastPlayerDeployTime = { infantryman: 0, tank: 0, sniper: 0 }
-const playerDeployCooldown = { infantryman: 5000, tank: 20000, sniper: 10000 }
-let maxCpuPlayers = 0
-let maxPlayer = 0
+
+/* create the grid that showing to the user*/
+const create = () => {
+  const first = document.querySelector('.first-edition')
+  for (let i = 0; i < 100; i++) {
+    let box = document.createElement('div')
+    box.classList.add('box')
+    first.appendChild(box)
+    if (i < 20) {
+      box.style.backgroundColor = 'red'
+    }
+    if (i > 79) {
+      box.style.backgroundColor = 'blue'
+    }
+  }
+}
+
 /*check if the some team reach the winning score */
 const getCheck = () => {
   const winningScore = 20
@@ -455,3 +467,4 @@ const startGame = () => {
     }
   }, 1000)
 }
+///////////////////////////////////
