@@ -335,7 +335,7 @@ const playerDeployCooldown = { infantryman: 5000, tank: 20000, sniper: 10000 }
 let maxCPU = 0
 let maxPlayer = 0
 const getCheck = () => {
-  const winningScore = 50
+  const winningScore = 20
 
   if (teamScore >= winningScore) {
     alert('You wins!')

@@ -12,12 +12,11 @@
 
 ### Map:
 
-The map is based on a grid covered by a background image to hide the boxes of the grid. It is represented in the JavaScript code by an array, with each box having one index in the array. The map is divided into 3 sectors:
+The map is based on a grid, It is represented in the JavaScript code by an array, with each box having one index in the array. The map is divided into 3 sectors:
 
-- Team base: where the team players respawn and protect it in conquest mode.
-- Battle area: which will be in the middle of the map and act as a connection link between the bases. It also contains walls where players can take cover.
-- Enemy base: where the enemy players respawn and which must be invaded to win in conquest mode. The enemy players should protect it from team players.
-  [concept disign of the map](https://whimsical.com/Ms5gWDWXEddNXqy3QEH66d)
+- Team base: where the team players respawn.
+- Battle area: which will be in the middle of the map and act as a connection link between the bases.
+- Enemy base: where the enemy players respawn.
 
 ### Teams:
 
@@ -32,14 +31,8 @@ The map is based on a grid covered by a background image to hide the boxes of th
 
 ### Modes:
 
-- Team Deathmatch: A standard fight-to-the-end team battle. The first team to reach 50 kills wins.
-- Conquest: Teams must invade the enemy's base. A win is declared if any team member stays in the enemy base for one minute.
+- Team Deathmatch: A standard fight-to-the-end team battle. The first team to reach 20 kills wins.
 
 ---
 
-## Some pictures of the game (Wireframes)
-
-"These pictures are just ideas, not real screenshots from the game. They show what the game might look like."
-![First picture you will see when you open the game](https://i.ibb.co/z8PXbzv/PHOTO-2024-01-17-23-53-08.jpg)
-![Choosing the game mode](https://i.ibb.co/Hrv0mLb/Frame-8.jpg)
-[Explain how walls work in the grid](https://whimsical.com/Ms5gWDWXEddNXqy3QEH66d)
+## Some pictures of the game (ScreenShots):
