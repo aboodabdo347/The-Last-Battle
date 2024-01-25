@@ -241,6 +241,7 @@ class Character {
         this.getTeam() !== enemy.getTeam() &&
         enemy.getDead() === 0
       ) {
+        // Manhattan distance formula
         let distance =
           Math.abs(this.getPositionX() - enemy.getPositionX()) +
           Math.abs(this.getPositionY() - enemy.getPositionY())
@@ -251,7 +252,7 @@ class Character {
       }
     }
 
-    if (closestEnemy !== null) {
+    if (closestEnemy !== undefined) {
       let moveX = this.getPositionX()
       let moveY = this.getPositionY()
 

@@ -4,7 +4,7 @@
 
 ## Overview
 
-"The Last Battle" is a 2D strategy game designed for web platforms. Using HTML, CSS, and JavaScript, the game features a battlefield made up of a grid. Players navigate this grid, engaging in tactical combat against CPU-controlled opponents.[Click here to play the game!](https://wiry-shoes.surge.sh/)
+This game is a simple 2D strategy game where you play against the computer. In the game, you have a grid, like a big square cut into smaller squares. These small squares are where the game happens. Your job is to pick your soldiers, like an infantryman, a tank, or a sniper, and then they fight against the computer's soldiers.[Click here to play the game!](https://wiry-shoes.surge.sh/)
 
 ---
 
@@ -58,6 +58,7 @@ Easy to play; just click the button of the character type you want to deploy. Ch
         this.getTeam() !== enemy.getTeam() &&
         enemy.getDead() === 0
       ) {
+        // Manhattan distance formula
         let distance =
           Math.abs(this.getPositionX() - enemy.getPositionX()) +
           Math.abs(this.getPositionY() - enemy.getPositionY())
@@ -68,7 +69,7 @@ Easy to play; just click the button of the character type you want to deploy. Ch
       }
     }
 
-    if (closestEnemy !== null) {
+    if (closestEnemy !== undefined) {
       let moveX = this.getPositionX()
       let moveY = this.getPositionY()
 
