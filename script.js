@@ -356,7 +356,7 @@ const create = () => {
 
 /*check if the some team reach the winning score */
 const getCheck = () => {
-  const winningScore = 20
+  const winningScore = 5
 
   if (teamKills >= winningScore) {
     alert('You wins! click refresh to play again!')

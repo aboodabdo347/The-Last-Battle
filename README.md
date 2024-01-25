@@ -4,7 +4,7 @@
 
 ## Overview
 
-This game is a simple 2D strategy game where you play against the computer. In the game, you have a grid, like a big square cut into smaller squares. These small squares are where the game happens. Your job is to pick your soldiers, like an infantryman, a tank, or a sniper, and then they fight against the computer's soldiers.[Click here to play the game!](https://wiry-shoes.surge.sh/)
+This game is a simple 2D strategy game where you play against the computer. In the game, you have a grid, like a big square cut into smaller squares. These small squares are where the game happens. Your job is to pick your soldiers, like an infantryman, a tank, or a sniper, and then they fight against the computer's soldiers.[Click here to play the game!](https://ubiquitous-pipe.surge.sh)
 
 ---
 
